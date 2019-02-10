@@ -17,6 +17,40 @@ namespace uwu
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
+        /*
+        shaq idle
+
+1, 2, 23, 45
+29, 1, 23, 46
+57. 1. 24. 46
+86, 1, 24, 46
+115, 2, 24, 45
+144, 1, 24, 46
+173, 1, 24, 46
+202, 1, 23, 47
+
+shaq crouch
+
+1, 206, 22, 42
+28, 206, 22, 42
+55, 206, 23, 42
+
+shaq jump
+
+1. 256. 25. 45
+31. 253. 24. 47
+60, 253, 24, 41
+89, 253, 26, 35
+120, 253, 17, 43
+142, 253, 21, 47
+168. 264. 25. 37
+
+shaq punch
+
+shaq block
+1, 1066, 17, 45x
+
+    */
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.

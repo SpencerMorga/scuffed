@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace uwu
 {
-    public class sprite
+    public class Sprite
     {
-        Texture2D image;
-        Vector2 position;
-        Color color;
-        Rectangle sourceRectangle;
+        public Texture2D image;
+        public Vector2 position;
+        public Color color;
+        public Rectangle sourceRectangle;
 
-        public sprite(Texture2D image, Vector2 position, Color color)
+        public Sprite(Texture2D image, Vector2 position, Color color)
         {
             this.image = image;
             this.position = position;

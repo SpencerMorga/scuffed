@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace uwu
 {
-    public class animation : sprite
+    public class Animation : Sprite
     {
         TimeSpan elaspedTime;
         public TimeSpan waitingtime;
-        public List<Rectangle> frames;
+        public List<Frame> frames;
         public int currentframeIndex = 0;
         
-            public animation(Texture2D image, Vector2 position, Color color, List<Rectangle> frames)
+            public Animation(Texture2D image, Vector2 position, Color color, List<Frame> frames)
                 : base(image, position, color)
             {
                 this.frames = frames;
@@ -25,6 +25,16 @@ namespace uwu
         public void Update (GameTime gTime)
         {
             elaspedTime += gTime.ElapsedGameTime;
+            if (elaspedTime > waitingtime)
+            {
+                currentframeIndex++;
+                if (currentframeIndex >= frames.Count)
+                {
+                    currentframeIndex = 0;
+                }
+                elaspedTime = TimeSpan.Zero;
+            }
+            sourceRectangle = frames[currentframeIndex].frame;
         }
     }
 }
