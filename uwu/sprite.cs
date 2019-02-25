@@ -18,7 +18,7 @@ namespace uwu
         public Sprite(Texture2D image, Vector2 position, Color color)
         {
             this.image = image;
-            this.position = position;
+            this.position /* rawr XD *nuzzles you* UwU *pounces on you* OwO so warm */= position;
             this.color = color;
         }
 

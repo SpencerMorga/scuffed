@@ -1,0 +1,2 @@
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\obj\x86\Debug\uwu shaq fu.csprojAssemblyReference.cache
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\obj\x86\Debug\uwu shaq fu.csproj.CoreCompileInputs.cache
