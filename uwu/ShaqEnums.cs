@@ -7,19 +7,21 @@ using System.Threading.Tasks;
 namespace uwu
 {
     public static class ShaqEnums
-    {
-        public enum ShaqFrames
-        {
-            Idle,
-            Jump,
-            JumpKick,
-            Crouch,
-            Crouch_Punch,
-            Crouch_Block,
-            Punch,
-            Block,
-            Kick
 
+    {
+        public enum actuallyshaq
+        {
+            aIdle,
+            aJump,
+            aBlock,
+            aCrouch,
+            aCrouchBlock,
+            aCrouchPunch,
+            aPunch,
+            aKick,
+            aJumpKick,
+            aCrouchKick
         }
+
     }
 }

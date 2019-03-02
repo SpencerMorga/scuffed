@@ -41,15 +41,17 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="animation.cs" />
-    <Compile Include="Oh wait no its the enemy dammit.cs" />
     <Compile Include="ShaqEnums.cs" />
+    <Compile Include="animation.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="EnemyEnums.cs" />
     <Compile Include="ShaqFrame.cs" />
     <Compile Include="frame.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sprite.cs" />
+    <Compile Include="Shaq.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
