@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace uwu
 {
-    public class This_is_actually_Shaq : Animation
+    public class Shaq : Animation
     {
         Dictionary<ShaqEnums.actuallyshaq, List<Frame>> animation2;
         ShaqEnums.actuallyshaq actuallyshaqStates;
@@ -27,7 +28,7 @@ namespace uwu
                 }
             }
         }
-        public This_is_actually_Shaq(Texture2D image, Vector2 position, Color color, List<Frame> frames)
+        public Shaq(Texture2D image, Vector2 position, Color color, List<Frame> frames)
             : base(image, position, color, frames)
         {
             List<Frame> idleA = new List<Frame>()
@@ -71,13 +72,13 @@ namespace uwu
                 new Frame(new Rectangle(55, 206, 23, 42), new Vector2()),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aCrouch, crouchA);
-            //3.14159265358979323846264338327950288419716939937510
+            
             List<Frame> crouchblockA = new List<Frame>()
             {
                 new Frame(new Rectangle(1, 1116, 22, 30), new Vector2()),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aCrouchBlock, crouchblockA);
-            //kero kero bonito
+           
             List<Frame> crouchpunchA = new List<Frame>()
             {
                 new Frame(new Rectangle(1, 459, 30, 25), new Vector2()),
@@ -94,7 +95,7 @@ namespace uwu
                 new Frame(new Rectangle(103, 359, 24, 45), new Vector2()),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aPunch, punchA);
-            //3.14159265358979323846264338327950288419716939937510
+            
             List<Frame> kickA = new List<Frame>()
             {
                 new Frame(new Rectangle(1, 555, 24, 45), new Vector2()),
@@ -103,7 +104,7 @@ namespace uwu
                 new Frame(new Rectangle(108, 554, 27, 46), new Vector2()),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aKick, kickA);
-            //3.14159265358979323846264338327950288419716939937510
+            
             List<Frame> jumpkickA = new List<Frame>()
             {
                 new Frame(new Rectangle(1, 722, 35, 31), new Vector2()),
@@ -113,20 +114,120 @@ namespace uwu
             List<Frame> crouchkickA = new List<Frame>()
             {
                 new Frame(new Rectangle(43,  657, 43, 24), new Vector2()),
-            };
-            //omae wa 
-             
-            //mou shindeiru
+            };            
+        }
 
+        public void Update(GameTime gTime, KeyboardState ks)
+        {
+            frames = animation2[currentframestate2];
 
-
-
-            //NANI
-            
- 
-
-
-            
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aBlock)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.S))
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aBlock;
+            }
+            //anachronistic capitalism
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouch)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.C))
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aCrouch;
+            }
+            //anachronistic capitalism
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouchBlock)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.V))
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aCrouchBlock;
+            }
+            //anachronistic capitalism
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouchKick)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.B))
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aCrouchKick;
+            }
+            //anachronistic capitalism
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouchPunch)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.X))
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aCrouchPunch;
+            }
+            //anachronistic capitalism
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aPunch)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.D))
+            {               
+                    currentframestate2 = ShaqEnums.actuallyshaq.aPunch;
+            }
+            //anachronistic capitalism
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aKick)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.A))
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aKick;
+            }
+            //anachronistic capitalism
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aJump)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.W))
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aJump;
+            }
+            //anachronistic capitalism
+            if (currentframestate2 == ShaqEnums.actuallyshaq.aJumpKick)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.E))
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aJumpKick;
+            }
         }
     }
 }

@@ -113,7 +113,47 @@ namespace uwu
             };
             animation.Add(EnemyEnums.ShaqFrames.CrouchKick, crouchkick);
         }
+        
+        public void Update(GameTime gtime, KeyboardState ks)
+        {
+            frames = animation[currentframestate];
 
-            
+            if (currentframestate == EnemyEnums.ShaqFrames.Block)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.RightShift))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Block;
+            }
+            //capitalistic anachronism
+            if (currentframestate == EnemyEnums.ShaqFrames.Crouch)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.NumPad5))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Crouch;
+            }
+            //anachronistic capitalism
+            if (currentframestate == EnemyEnums.ShaqFrames.CrouchKick)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.NumPad1))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.CrouchKick;
+            }
+        }
+
     }
 }
