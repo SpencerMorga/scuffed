@@ -28,19 +28,35 @@ namespace uwu
                 }
             }
         }
+
+        public bool bJump = false;
+        public bool bBlock = false;
+        public bool bCrouch = false;
+        public bool bCrouchBlock = false;
+        public bool bCrouchPunch = false;
+        public bool bPunch = false;
+        public bool bKick = false;
+        public bool bJumpKick = false;
+        public bool bCrouchKick = false;
+
+        private Vector2 BottomLeft(int width, int height)
+        {
+            return new Vector2(0, height);
+        }
+
         public Shaq(Texture2D image, Vector2 position, Color color, List<Frame> frames)
             : base(image, position, color, frames)
         {
             List<Frame> idleA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 2, 23, 45), new Vector2()),
-                new Frame(new Rectangle(29, 1, 23, 46), new Vector2()),
-                new Frame(new Rectangle(57, 1, 24, 46), new Vector2()),
-                new Frame(new Rectangle(86, 1, 24, 46), new Vector2()),
-                new Frame(new Rectangle(115, 2, 24, 45), new Vector2()),
-                new Frame(new Rectangle(144, 2, 24, 46), new Vector2()),
-                new Frame(new Rectangle(173, 1, 24, 46), new Vector2()),
-                new Frame(new Rectangle(202, 1, 23, 47), new Vector2()),
+                new Frame(new Rectangle(1, 2, 23, 45),   BottomLeft(23, 45)),
+                new Frame(new Rectangle(29, 1, 23, 46),  BottomLeft(23, 46)),
+                new Frame(new Rectangle(57, 1, 24, 46),  BottomLeft(24, 46)),
+                new Frame(new Rectangle(86, 1, 24, 46),  BottomLeft(24, 46)),
+                new Frame(new Rectangle(115, 2, 24, 45), BottomLeft(24, 45)),
+                new Frame(new Rectangle(144, 1, 24, 46), BottomLeft(24, 46)),
+                new Frame(new Rectangle(173, 1, 24, 46), BottomLeft(24, 46)),
+                new Frame(new Rectangle(202, 1, 23, 47), BottomLeft(23, 47)),
             };
             animation2 = new Dictionary<ShaqEnums.actuallyshaq, List<Frame>>();
             animation2.Add(ShaqEnums.actuallyshaq.aIdle, idleA);
@@ -86,7 +102,7 @@ namespace uwu
                 new Frame(new Rectangle(80, 459, 30, 35), new Vector2()),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aCrouchPunch, crouchpunchA);
-            //rawr x3 nuzzles pounces on you UwU you so warm
+            
             List<Frame> punchA = new List<Frame>()
             {
                 new Frame(new Rectangle(1, 358, 24, 46), new Vector2()),
@@ -110,7 +126,7 @@ namespace uwu
                 new Frame(new Rectangle(1, 722, 35, 31), new Vector2()),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aJumpKick, jumpkickA);
-            //rawr x3 nuzzles pounces on you UwU you so warm
+            
             List<Frame> crouchkickA = new List<Frame>()
             {
                 new Frame(new Rectangle(43,  657, 43, 24), new Vector2()),
@@ -120,6 +136,43 @@ namespace uwu
         public void Update(GameTime gTime, KeyboardState ks)
         {
             frames = animation2[currentframestate2];
+
+            if (bJump == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aJump;
+            }
+            if (bBlock == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aBlock;
+            }
+            if (bCrouch == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aCrouch;
+            }
+            if (bCrouchBlock == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aCrouchBlock;
+            }
+            if (bCrouchKick == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aCrouchKick;
+            }
+            if (bCrouchPunch == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aCrouchPunch;
+            }
+            if (bKick == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aKick;
+            }
+            if (bJumpKick == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aJumpKick;
+            }
+            if (bPunch == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aPunch;
+            }
 
             if (currentframestate2 == ShaqEnums.actuallyshaq.aBlock)
             {
@@ -167,6 +220,7 @@ namespace uwu
             if (ks.IsKeyDown(Keys.B))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouchKick;
+                bCrouchKick = true;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouchPunch)
@@ -190,7 +244,8 @@ namespace uwu
             }
             if (ks.IsKeyDown(Keys.D))
             {               
-                    currentframestate2 = ShaqEnums.actuallyshaq.aPunch;
+                currentframestate2 = ShaqEnums.actuallyshaq.aPunch;
+                bPunch = true;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aKick)
@@ -228,6 +283,8 @@ namespace uwu
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aJumpKick;
             }
+
+            base.Update(gTime);
         }
     }
 }

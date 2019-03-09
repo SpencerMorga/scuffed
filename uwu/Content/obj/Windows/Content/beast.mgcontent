@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>Z:/spencer.morga/Documents/Visual Studio 2017/Projects/uwu/uwu/Content/beast.png</SourceFile>
-  <SourceTime>2019-02-10T13:37:13.5067354-08:00</SourceTime>
+  <SourceTime>2019-03-09T10:37:31.0654308-08:00</SourceTime>
   <DestFile>Z:/spencer.morga/Documents/Visual Studio 2017/Projects/uwu/uwu/Content/bin/Windows/Content/beast.xnb</DestFile>
-  <DestTime>2019-02-24T16:02:12.3394656-08:00</DestTime>
+  <DestTime>2019-03-09T10:37:33.7143097-08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T08:35:54-08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

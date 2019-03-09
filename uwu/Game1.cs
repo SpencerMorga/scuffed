@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace uwu
 {
@@ -11,6 +12,9 @@ namespace uwu
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        Shaq shaqfu;
+        Enemy enemything;
 
         public Game1()
         {
@@ -40,7 +44,101 @@ namespace uwu
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            shaqfu = new Shaq(Content.Load<Texture2D>("shaq"), new Vector2(350, 400), Color.White, new List<Frame>());
+            enemything = new Enemy(Content.Load<Texture2D>("beast"), new Vector2(380, 404), Color.White, new List<Frame>());
 
+            //attack logic
+
+            if (shaqfu.bPunch == true)
+            {
+                if (enemything.bcrouch || enemything.bcrouchblock || enemything.bcrouchkick || enemything.bcrouchpunch)
+                {
+                    //no damage
+                }
+                else if (enemything.bjump)
+                {
+                    //no damage
+                }
+                else if (enemything.bblock)
+                {
+                    //half damage taken
+                }
+                else
+                {
+                    //full damage
+                }//361 1268
+            }
+            if (shaqfu.bKick == true)
+            {
+                if (enemything.bcrouch || enemything.bcrouchblock || enemything.bcrouchkick || enemything.bcrouchpunch)
+                {
+                    //""
+                }
+                else if (enemything.bjump)
+                {
+                    //""
+                }
+                else if (enemything.bblock)
+                {
+                    //""
+                }
+                else
+                {
+                    //""
+                }
+            }
+            if (shaqfu.bCrouchPunch == true || shaqfu.bCrouchKick == true)
+            {
+                if (enemything.bcrouchblock)
+                {
+                    //half
+                }
+                else if (enemything.bjump)
+                {
+                    //none
+                }
+                else
+                {
+                    //full
+                }
+            }
+            
+
+            if (enemything.bpunch == true || shaqfu.bKick == true)
+            {
+                if (shaqfu.bCrouch || shaqfu.bCrouchBlock || shaqfu.bCrouchKick || shaqfu.bCrouchPunch)
+                {
+                    //none
+                }
+                else if (shaqfu.bJump)
+                {
+                    //none
+                }
+                else if (shaqfu.bBlock)
+                {
+                    //half
+                }
+                else
+                {
+                    //full
+                }
+            }
+            if (enemything.bcrouchkick || enemything.bcrouchpunch)
+            {
+                if (shaqfu.bCrouchBlock)
+                {
+                    //half
+                }
+                else if (shaqfu.bJump)
+                {
+                    //none
+                }
+                else
+                {
+                    //full
+                }
+            }
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -64,6 +162,12 @@ namespace uwu
                 Exit();
 
             // TODO: Add your update logic here
+            shaqfu.Update(gameTime, Keyboard.GetState());
+            enemything.Update(gameTime, Keyboard.GetState());
+
+
+
+
 
             base.Update(gameTime);
         }
@@ -74,10 +178,16 @@ namespace uwu
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
+            spriteBatch.Begin();
             // TODO: Add your drawing code here
 
+            shaqfu.Draw(spriteBatch);
+            enemything.Draw(spriteBatch);
+
+
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

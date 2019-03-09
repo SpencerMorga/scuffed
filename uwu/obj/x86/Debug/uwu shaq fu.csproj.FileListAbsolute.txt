@@ -1,2 +1,26 @@
 \\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\obj\x86\Debug\uwu shaq fu.csprojAssemblyReference.cache
 \\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\obj\x86\Debug\uwu shaq fu.csproj.CoreCompileInputs.cache
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\Content\beast.xnb
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\Content\shaq back.xnb
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\Content\shaq.xnb
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\uwu.exe
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\uwu.pdb
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\MonoGame.Framework.dll
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.dll
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.XInput.dll
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\MonoGame.Framework.xml
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.xml
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\bin\Windows\x86\Debug\SharpDX.XInput.xml
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\obj\x86\Debug\uwu shaq fu.csproj.CopyComplete
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\obj\x86\Debug\uwu.exe
+\\GMRDC1\Folder Redirection\spencer.morga\Documents\Visual Studio 2017\Projects\uwu\uwu\obj\x86\Debug\uwu.pdb

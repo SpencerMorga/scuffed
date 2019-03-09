@@ -27,7 +27,16 @@ namespace uwu
                 }
             }
         }
-        
+        public bool bjump;
+        public bool bblock;
+        public bool bcrouch;
+        public bool bcrouchblock;
+        public bool bcrouchpunch;
+        public bool bcrouchkick;
+        public bool bpunch;
+        public bool bkick;
+        public bool bjumpkick;
+
         public Enemy(Texture2D image, Vector2 position, Color color, List<Frame> frames)
             : base (image, position, color, frames)
         {
@@ -113,10 +122,47 @@ namespace uwu
             };
             animation.Add(EnemyEnums.ShaqFrames.CrouchKick, crouchkick);
         }
-        
+
         public void Update(GameTime gtime, KeyboardState ks)
         {
             frames = animation[currentframestate];
+
+            if (bjump)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Jump;
+            }
+            if (bblock)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Block;
+            }
+            if (bcrouch)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Crouch;
+            }
+            if (bcrouchblock)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Crouch_Block;
+            }
+            if (bcrouchkick)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Crouch_Punch;
+            }
+            if (bcrouchpunch)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Crouch_Punch;
+            }
+            if (bkick)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Kick;
+            }
+            if (bpunch)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Punch;
+            }
+            if (bjumpkick)
+            {
+                currentframestate = EnemyEnums.ShaqFrames.JumpKick;
+            }
 
             if (currentframestate == EnemyEnums.ShaqFrames.Block)
             {
@@ -149,11 +195,85 @@ namespace uwu
                     currentframestate = EnemyEnums.ShaqFrames.Idle;
                 }
             }
-            if (ks.IsKeyDown(Keys.NumPad1))
+            if (ks.IsKeyDown(Keys.NumPad2))
             {
                 currentframestate = EnemyEnums.ShaqFrames.CrouchKick;
             }
+            ////////////////////////////////////////////////////////////////
+            if (currentframestate == EnemyEnums.ShaqFrames.Crouch_Block)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.NumPad3))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Crouch_Block;
+            }
+            ////////////////////////////////////////////////////////////////
+            if (currentframestate == EnemyEnums.ShaqFrames.Crouch_Punch)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.NumPad1))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Crouch_Punch;
+            }
+            ////////////////////////////////////////////////////////////////
+            if (currentframestate == EnemyEnums.ShaqFrames.Jump)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.NumPad8))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Jump;
+            }
+            ////////////////////////////////////////////////////////////////
+            if (currentframestate == EnemyEnums.ShaqFrames.JumpKick)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.NumPad7))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.JumpKick;
+            }
+            ////////////////////////////////////////////////////////////////
+            if (currentframestate == EnemyEnums.ShaqFrames.Kick)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.NumPad6))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Kick;
+            }
+            ////////////////////////////////////////////////////////////////
+            if (currentframestate == EnemyEnums.ShaqFrames.Punch)
+            {
+                if (currentframeIndex + 1 >= frames.Count)
+                {
+                    currentframestate = EnemyEnums.ShaqFrames.Idle;
+                }
+            }
+            if (ks.IsKeyDown(Keys.NumPad4))
+            {
+                currentframestate = EnemyEnums.ShaqFrames.Punch;
+            }
+            base.Update(gtime);
         }
-
     }
+
+    
 }
