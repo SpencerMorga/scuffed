@@ -16,6 +16,9 @@ namespace uwu
         Shaq shaqfu;
         Enemy enemything;
 
+
+        Texture2D shaqsprites;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -47,6 +50,9 @@ namespace uwu
             shaqfu = new Shaq(Content.Load<Texture2D>("shaq"), new Vector2(350, 400), Color.White, new List<Frame>());
             enemything = new Enemy(Content.Load<Texture2D>("beast"), new Vector2(380, 404), Color.White, new List<Frame>());
 
+            shaqsprites = Content.Load<Texture2D>("shaq");
+
+
             //attack logic
 
             if (shaqfu.bPunch == true)
@@ -55,7 +61,7 @@ namespace uwu
                 {
                     //no damage
                 }
-                else if (enemything.bjump)
+                 else if (enemything.bjump)
                 {
                     //no damage
                 }
@@ -171,7 +177,7 @@ namespace uwu
 
             base.Update(gameTime);
         }
-
+        
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -185,6 +191,8 @@ namespace uwu
 
             shaqfu.Draw(spriteBatch);
             enemything.Draw(spriteBatch);
+            //spriteBatch.Draw(Content.Load<Texture2D>(""), new Vector2(380, 404), null, Color.White, 0, Vector2.Zero, 1.3f, SpriteEffects.None, 0); 
+            //spriteBatch.Draw(shaqsprites, new Rectangle(350, 404, 10, 10), shaqfu.sourceRectangle, Color.White);
 
 
             spriteBatch.End();

@@ -23,7 +23,7 @@ namespace uwu
                 if (shaqstates != value)
                 {
                     shaqstates = value;
-                    currentframestate = 0;
+                    currentframeIndex = 0;
                 }
             }
         }
@@ -44,13 +44,13 @@ namespace uwu
             List<Frame> idle = new List<Frame>()
             {
                 new Frame(new Rectangle(328, 1, 32, 38), new Vector2()),
-                new Frame(new Rectangle(291, 2, 32, 37), new Vector2()),
-                new Frame(new Rectangle(256, 2, 30, 37), new Vector2()),
-                new Frame(new Rectangle(221, 1, 30, 38), new Vector2()),
+                //new Frame(new Rectangle(291, 2, 32, 37), new Vector2()),
+                //new Frame(new Rectangle(256, 2, 30, 37), new Vector2()),
+               // new Frame(new Rectangle(221, 1, 30, 38), new Vector2()),
             };
             animation = new Dictionary<EnemyEnums.ShaqFrames, List<Frame>>();
             animation.Add(EnemyEnums.ShaqFrames.Idle, idle);
-
+            
             List<Frame> jump = new List<Frame>()
             {
                 new Frame(new Rectangle(331, 220, 29, 39), new Vector2()),
@@ -273,7 +273,5 @@ namespace uwu
             }
             base.Update(gtime);
         }
-    }
-
-    
+    }    
 }

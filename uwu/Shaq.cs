@@ -11,9 +11,9 @@ namespace uwu
 {
     public class Shaq : Animation
     {
-        Dictionary<ShaqEnums.actuallyshaq, List<Frame>> animation2;
+        public Dictionary<ShaqEnums.actuallyshaq, List<Frame>> animation2;
         ShaqEnums.actuallyshaq actuallyshaqStates;
-        ShaqEnums.actuallyshaq currentframestate2
+        public ShaqEnums.actuallyshaq currentframestate2
         {
             get
             {
@@ -24,10 +24,15 @@ namespace uwu
                 if (actuallyshaqStates != value)
                 {
                     actuallyshaqStates = value;
-                    currentframestate2 = 0;
+                    currentframeIndex = 0;
                 }
             }
         }
+        //public Rectangle gcfr()
+        //{
+        //    return frames[currentframeIndex]
+        //}
+
 
         public bool bJump = false;
         public bool bBlock = false;
@@ -49,14 +54,14 @@ namespace uwu
         {
             List<Frame> idleA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 2, 23, 45),   BottomLeft(23, 45)),
-                new Frame(new Rectangle(29, 1, 23, 46),  BottomLeft(23, 46)),
-                new Frame(new Rectangle(57, 1, 24, 46),  BottomLeft(24, 46)),
+                //new Frame(new Rectangle(1, 2, 23, 45),   BottomLeft(23, 45)),
+                //new Frame(new Rectangle(29, 1, 23, 46),  BottomLeft(23, 46)),
+                //new Frame(new Rectangle(57, 1, 24, 46),  BottomLeft(24, 46)),
                 new Frame(new Rectangle(86, 1, 24, 46),  BottomLeft(24, 46)),
-                new Frame(new Rectangle(115, 2, 24, 45), BottomLeft(24, 45)),
-                new Frame(new Rectangle(144, 1, 24, 46), BottomLeft(24, 46)),
-                new Frame(new Rectangle(173, 1, 24, 46), BottomLeft(24, 46)),
-                new Frame(new Rectangle(202, 1, 23, 47), BottomLeft(23, 47)),
+                //new Frame(new Rectangle(115, 2, 24, 45), BottomLeft(24, 45)),
+                //new Frame(new Rectangle(144, 1, 24, 46), BottomLeft(24, 46)),
+                //new Frame(new Rectangle(173, 1, 24, 46), BottomLeft(24, 46)),
+                //new Frame(new Rectangle(202, 1, 23, 47), BottomLeft(23, 47)),
             };
             animation2 = new Dictionary<ShaqEnums.actuallyshaq, List<Frame>>();
             animation2.Add(ShaqEnums.actuallyshaq.aIdle, idleA);
@@ -165,15 +170,19 @@ namespace uwu
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aKick;
             }
-            if (bJumpKick == true)
-            {
-                currentframestate2 = ShaqEnums.actuallyshaq.aJumpKick;
-            }
+
             if (bPunch == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aPunch;
             }
 
+            if (bJumpKick == true)
+            {
+                currentframestate2 = ShaqEnums.actuallyshaq.aJumpKick;
+            }
+          
+
+         
             if (currentframestate2 == ShaqEnums.actuallyshaq.aBlock)
             {
                 if (currentframeIndex + 1 >= frames.Count)
@@ -181,14 +190,16 @@ namespace uwu
                     currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
                 }
             }
+  
             if (ks.IsKeyDown(Keys.S))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aBlock;
             }
-            //anachronistic capitalism
+
             if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouch)
             {
                 if (currentframeIndex + 1 >= frames.Count)
+            //anachronistic capitalism
                 {
                     currentframestate2 = ShaqEnums.actuallyshaq.aIdle;
                 }
@@ -220,7 +231,7 @@ namespace uwu
             if (ks.IsKeyDown(Keys.B))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouchKick;
-                bCrouchKick = true;
+                //bCrouchKick = true;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouchPunch)
@@ -245,7 +256,7 @@ namespace uwu
             if (ks.IsKeyDown(Keys.D))
             {               
                 currentframestate2 = ShaqEnums.actuallyshaq.aPunch;
-                bPunch = true;
+                //bPunch = true;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aKick)

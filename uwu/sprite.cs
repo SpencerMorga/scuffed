@@ -14,11 +14,17 @@ namespace uwu
         public Vector2 position;
         public Color color;
         public Rectangle sourceRectangle;
-
+        public Rectangle destRectangle
+        {
+            get
+            {
+                return new Rectangle((int)position.X, (int)position.Y, 500, 500);
+            }
+        }
         public Sprite(Texture2D image, Vector2 position, Color color)
         {
             this.image = image;
-            this.position /* rawr XD *nuzzles you* UwU *pounces on you* OwO so warm */= position;
+            this.position = position;
             this.color = color;
         }
 

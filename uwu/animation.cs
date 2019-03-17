@@ -13,6 +13,8 @@ namespace uwu
         TimeSpan elaspedTime;
         public TimeSpan waitingtime;
         public List<Frame> frames;
+
+
         public int currentframeIndex = 0;
         
             public Animation(Texture2D image, Vector2 position, Color color, List<Frame> frames)
