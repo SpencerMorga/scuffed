@@ -37,6 +37,7 @@ namespace uwu
                 elaspedTime = TimeSpan.Zero;
             }
             sourceRectangle = frames[currentframeIndex].frame;
+            origin = frames[currentframeIndex].origin;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace uwu
         Shaq shaqfu;
         Enemy enemything;
 
+        Texture2D pixel;
 
         Texture2D shaqsprites;
 
@@ -48,7 +49,9 @@ namespace uwu
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             shaqfu = new Shaq(Content.Load<Texture2D>("shaq"), new Vector2(350, 400), Color.White, new List<Frame>());
-            enemything = new Enemy(Content.Load<Texture2D>("beast"), new Vector2(380, 404), Color.White, new List<Frame>());
+            enemything = new Enemy(Content.Load<Texture2D>("beast"), new Vector2(420, 404), Color.White, new List<Frame>());
+            pixel = new Texture2D(GraphicsDevice, 1, 1);
+            pixel.SetData(new Color[] { Color.White });
 
             shaqsprites = Content.Load<Texture2D>("shaq");
 
@@ -59,7 +62,7 @@ namespace uwu
             {
                 if (enemything.bcrouch || enemything.bcrouchblock || enemything.bcrouchkick || enemything.bcrouchpunch)
                 {
-                    //no damage
+                    
                 }
                  else if (enemything.bjump)
                 {
@@ -189,8 +192,8 @@ namespace uwu
             spriteBatch.Begin();
             // TODO: Add your drawing code here
 
-            shaqfu.Draw(spriteBatch);
-            enemything.Draw(spriteBatch);
+            shaqfu.Draw(spriteBatch, pixel);
+            enemything.Draw(spriteBatch, pixel);
             //spriteBatch.Draw(Content.Load<Texture2D>(""), new Vector2(380, 404), null, Color.White, 0, Vector2.Zero, 1.3f, SpriteEffects.None, 0); 
             //spriteBatch.Draw(shaqsprites, new Rectangle(350, 404, 10, 10), shaqfu.sourceRectangle, Color.White);
 

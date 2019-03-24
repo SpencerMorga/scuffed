@@ -68,73 +68,87 @@ namespace uwu
 
             List<Frame> jumpA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 256, 25, 45), new Vector2()),
-                new Frame(new Rectangle(31, 253, 24, 47), new Vector2()),
-                new Frame(new Rectangle(60, 253, 24, 41), new Vector2()),
-                new Frame(new Rectangle(89, 253, 26, 35), new Vector2()),
-                new Frame(new Rectangle(120, 253, 17, 43), new Vector2()),
-                new Frame(new Rectangle(142, 253, 21, 47), new Vector2()),
-                new Frame(new Rectangle(168, 264, 25, 37), new Vector2()),
+                new Frame(new Rectangle(1, 256, 25, 45),   BottomLeft(25, 45)),
+                new Frame(new Rectangle(31, 253, 24, 47),  BottomLeft(24, 47)),
+                new Frame(new Rectangle(60, 253, 24, 41),  BottomLeft(24, 41)),
+                new Frame(new Rectangle(89, 253, 26, 35),  BottomLeft(26, 35)),
+                new Frame(new Rectangle(120, 253, 17, 43), BottomLeft(17, 43)),
+                new Frame(new Rectangle(142, 253, 21, 47), BottomLeft(21, 47)),
+                new Frame(new Rectangle(168, 264, 25, 37), BottomLeft(25, 37)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aJump, jumpA);
             //omae wa mou shindeiru
             List<Frame> blockA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 1066, 17, 45), new Vector2()),
-                new Frame(new Rectangle(23, 1068, 17, 43), new Vector2()),
-                new Frame(new Rectangle(45, 1066, 17, 45), new Vector2()),
+                new Frame(new Rectangle(1, 1066, 17, 45),  BottomLeft(17, 45)),
+                new Frame(new Rectangle(23, 1068, 17, 43), BottomLeft(17, 43)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
+                new Frame(new Rectangle(45, 1066, 17, 45), BottomLeft(17, 45)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aBlock, blockA);
             //omae wa mou shindeiru
             List<Frame> crouchA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 206, 22, 42), new Vector2()),
-                new Frame(new Rectangle(28, 206, 22, 42), new Vector2()),
-                new Frame(new Rectangle(55, 206, 23, 42), new Vector2()),
+                new Frame(new Rectangle(1, 206, 22, 42),  BottomLeft(22, 42)),
+                new Frame(new Rectangle(28, 206, 22, 42), BottomLeft(22, 42)),
+                new Frame(new Rectangle(55, 206, 23, 42), BottomLeft(23, 42)),
+                new Frame(new Rectangle(55, 206, 23, 42), BottomLeft(23, 42)),
+                new Frame(new Rectangle(55, 206, 23, 42), BottomLeft(23, 42)),
+                new Frame(new Rectangle(55, 206, 23, 42), BottomLeft(23, 42)),
+                new Frame(new Rectangle(55, 206, 23, 42), BottomLeft(23, 42)),
+                new Frame(new Rectangle(55, 206, 23, 42), BottomLeft(23, 42)),
+                new Frame(new Rectangle(55, 206, 23, 42), BottomLeft(23, 42)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aCrouch, crouchA);
             
             List<Frame> crouchblockA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 1116, 22, 30), new Vector2()),
+                new Frame(new Rectangle(1, 1116, 22, 45), BottomLeft(22, 45)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aCrouchBlock, crouchblockA);
            
             List<Frame> crouchpunchA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 459, 30, 25), new Vector2()),
-                new Frame(new Rectangle(36, 459, 39, 25), new Vector2()),
-                new Frame(new Rectangle(80, 459, 30, 35), new Vector2()),
+                new Frame(new Rectangle(1, 459, 30, 45),  BottomLeft(30, 45)),
+                new Frame(new Rectangle(36, 459, 39, 45), BottomLeft(39, 45)),
+                new Frame(new Rectangle(80, 459, 30, 45), BottomLeft(30, 45)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aCrouchPunch, crouchpunchA);
             
             List<Frame> punchA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 358, 24, 46), new Vector2()),
-                new Frame(new Rectangle(30, 358, 36, 45), new Vector2()),
-                new Frame(new Rectangle(71, 359, 27, 45), new Vector2()),
-                new Frame(new Rectangle(103, 359, 24, 45), new Vector2()),
+                  new Frame(new Rectangle(1, 358, 24, 46), BottomLeft(24, 46)),
+                 new Frame(new Rectangle(30, 358, 36, 45), BottomLeft(36, 45)),
+                 new Frame(new Rectangle(71, 359, 27, 45), BottomLeft(27, 45)),
+                new Frame(new Rectangle(103, 359, 24, 45), BottomLeft(24, 45)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aPunch, punchA);
             
             List<Frame> kickA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 555, 24, 45), new Vector2()),
-                new Frame(new Rectangle(30, 552, 40, 48), new Vector2()),
-                new Frame(new Rectangle(75, 557, 28, 43), new Vector2()),
-                new Frame(new Rectangle(108, 554, 27, 46), new Vector2()),
+                  new Frame(new Rectangle(1, 555, 24, 45), BottomLeft(24, 45)),
+                 new Frame(new Rectangle(30, 552, 40, 48), BottomLeft(40, 48)),
+                 new Frame(new Rectangle(75, 557, 28, 43), BottomLeft(28, 43)),
+                new Frame(new Rectangle(108, 554, 27, 46), BottomLeft(27, 46)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aKick, kickA);
             
             List<Frame> jumpkickA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 722, 35, 31), new Vector2()),
+                new Frame(new Rectangle(1, 722, 35, 31), BottomLeft(35, 31)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aJumpKick, jumpkickA);
             
             List<Frame> crouchkickA = new List<Frame>()
             {
-                new Frame(new Rectangle(43,  657, 43, 24), new Vector2()),
+                new Frame(new Rectangle(43,  657, 43, 24), BottomLeft(43, 24)),
             };            
         }
 
