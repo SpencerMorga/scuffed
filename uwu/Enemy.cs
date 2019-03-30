@@ -27,15 +27,16 @@ namespace uwu
                 }
             }
         }
-        public bool bjump;
-        public bool bblock;
-        public bool bcrouch;
-        public bool bcrouchblock;
-        public bool bcrouchpunch;
-        public bool bcrouchkick;
-        public bool bpunch;
-        public bool bkick;
-        public bool bjumpkick;
+        public bool bjump = false;
+        public bool bblock = false;
+        public bool bcrouch = false;
+        public bool bcrouchblock = false;
+        public bool bcrouchpunch = false;
+        public bool bcrouchkick = false;
+        public bool bpunch = false;
+        public bool bkick = false;
+        public bool bjumpkick = false;
+        public int health = 480;
 
         private Vector2 BottomRight(int width, int height)
         {
@@ -49,9 +50,6 @@ namespace uwu
             List<Frame> idle = new List<Frame>()
             {
                 new Frame(new Rectangle(328, 1, 32, 38), BottomRight(32, 38)),
-                //new Frame(new Rectangle(291, 2, 32, 37), new Vector2()),
-                //new Frame(new Rectangle(256, 2, 30, 37), new Vector2()),
-               // new Frame(new Rectangle(221, 1, 30, 38), new Vector2()),
             };
             animation = new Dictionary<EnemyEnums.ShaqFrames, List<Frame>>();
             animation.Add(EnemyEnums.ShaqFrames.Idle, idle);
@@ -72,6 +70,11 @@ namespace uwu
             {
                 new Frame(new Rectangle(330, 850, 30, 37), BottomRight(30, 37)),
                 new Frame(new Rectangle(302, 847, 23, 40), BottomRight(23, 40)),
+                new Frame(new Rectangle(302, 847, 23, 40), BottomRight(23, 40)),
+                new Frame(new Rectangle(302, 847, 23, 40), BottomRight(23, 40)),
+                new Frame(new Rectangle(302, 847, 23, 40), BottomRight(23, 40)),
+                new Frame(new Rectangle(302, 847, 23, 40), BottomRight(23, 40)),
+                new Frame(new Rectangle(302, 847, 23, 40), BottomRight(23, 40)),
                 new Frame(new Rectangle(267, 850, 30, 37), BottomRight(30, 37)),
             };
             animation.Add(EnemyEnums.ShaqFrames.Block, block);
@@ -80,13 +83,22 @@ namespace uwu
             {
                 new Frame(new Rectangle(331, 174, 29, 30), BottomRight(29, 30)),
                 new Frame(new Rectangle(299, 174, 27, 30), BottomRight(27, 30)),
-                new Frame(new Rectangle(331, 220, 29, 30), BottomRight(29, 30)),
+                new Frame(new Rectangle(299, 174, 27, 30), BottomRight(27, 30)),
+                new Frame(new Rectangle(299, 174, 27, 30), BottomRight(27, 30)),
+                new Frame(new Rectangle(299, 174, 27, 30), BottomRight(27, 30)),
+                new Frame(new Rectangle(299, 174, 27, 30), BottomRight(27, 30)),
+                new Frame(new Rectangle(299, 174, 27, 30), BottomRight(27, 30)),
+                //new Frame(new Rectangle(331, 220, 29, 30), BottomRight(29, 30)),
             };
             animation.Add(EnemyEnums.ShaqFrames.Crouch, crouch);
 
             List<Frame> crouchblock = new List<Frame>()
             {
                 new Frame(new Rectangle(336, 892, 24, 23), BottomRight(24, 23)),
+                 new Frame(new Rectangle(306, 892, 25, 23), BottomRight(25, 23)),
+                 new Frame(new Rectangle(306, 892, 25, 23), BottomRight(25, 23)),
+                 new Frame(new Rectangle(306, 892, 25, 23), BottomRight(25, 23)),
+                 new Frame(new Rectangle(306, 892, 25, 23), BottomRight(25, 23)),
                 new Frame(new Rectangle(306, 892, 25, 23), BottomRight(25, 23)),
                 new Frame(new Rectangle(277, 892, 24, 23), BottomRight(24, 23)),
             };
@@ -96,6 +108,7 @@ namespace uwu
             {
                 new Frame(new Rectangle(331, 395, 29, 23), BottomRight(29, 23)),
                 new Frame(new Rectangle(281, 395, 45, 23), BottomRight(45, 23)),
+                 new Frame(new Rectangle(281, 395, 45, 23), BottomRight(45, 23)),
                 new Frame(new Rectangle(247, 395, 29, 23), BottomRight(29, 23)),
             };
             animation.Add(EnemyEnums.ShaqFrames.Crouch_Punch, crouchpunch);
@@ -105,7 +118,7 @@ namespace uwu
                 new Frame(new Rectangle(330, 300, 30, 37), BottomRight(30, 37)),
                 new Frame(new Rectangle(278, 305, 47, 32), BottomRight(47, 32)),
                 new Frame(new Rectangle(241, 305, 33, 32), BottomRight(33, 32)),
-            };/* rawr XD *nuzzles* UwU *pounces on you* OwO so warm */
+            };
             animation.Add(EnemyEnums.ShaqFrames.Punch, punch);
 
             List<Frame> kick = new List<Frame>()
@@ -122,6 +135,7 @@ namespace uwu
             { 
                 new Frame(new Rectangle(329, 612, 31, 25), BottomRight(31, 25)),
                 new Frame(new Rectangle(276, 613, 48, 24), BottomRight(48, 24)),
+                 new Frame(new Rectangle(276, 613, 48, 24), BottomRight(48, 24)),
                 new Frame(new Rectangle(240, 613, 31, 24), BottomRight(31, 24)),
                 new Frame(new Rectangle(210, 612, 25, 25), BottomRight(25, 25)),
             };
@@ -179,6 +193,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.RightShift))
             {
                 currentframestate = EnemyEnums.ShaqFrames.Block;
+                bblock = true;
+                bcrouch = false;
+                bcrouchblock = false;
+                bcrouchkick = false;
+                bcrouchpunch = false;
+                bjump = false;
+                bjumpkick = false;
+                bkick = false;
+                bpunch = false;
             }
             //capitalistic anachronism
             if (currentframestate == EnemyEnums.ShaqFrames.Crouch)
@@ -191,6 +214,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.NumPad5))
             {
                 currentframestate = EnemyEnums.ShaqFrames.Crouch;
+                bblock = false;
+                bcrouch = true;
+                bcrouchblock = false;
+                bcrouchkick = false;
+                bcrouchpunch = false;
+                bjump = false;
+                bjumpkick = false;
+                bkick = false;
+                bpunch = false;
             }
             //anachronistic capitalism
             if (currentframestate == EnemyEnums.ShaqFrames.CrouchKick)
@@ -203,6 +235,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.NumPad2))
             {
                 currentframestate = EnemyEnums.ShaqFrames.CrouchKick;
+                bblock = false;
+                bcrouch = false;
+                bcrouchblock = false;
+                bcrouchkick = true;
+                bcrouchpunch = false;
+                bjump = false;
+                bjumpkick = false;
+                bkick = false;
+                bpunch = false;
             }
             ////////////////////////////////////////////////////////////////
             if (currentframestate == EnemyEnums.ShaqFrames.Crouch_Block)
@@ -215,6 +256,16 @@ namespace uwu
             if (ks.IsKeyDown(Keys.NumPad3))
             {
                 currentframestate = EnemyEnums.ShaqFrames.Crouch_Block;
+                bblock = false;
+                bcrouch = false;
+                bcrouchblock = true;
+                bcrouchkick = false;
+                bcrouchpunch = false;
+                bjump = false;
+                bjumpkick = false;
+                bkick = false;
+                bpunch = false;
+
             }
             ////////////////////////////////////////////////////////////////
             if (currentframestate == EnemyEnums.ShaqFrames.Crouch_Punch)
@@ -227,6 +278,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.NumPad1))
             {
                 currentframestate = EnemyEnums.ShaqFrames.Crouch_Punch;
+                bblock = false;
+                bcrouch = false;
+                bcrouchblock = false;
+                bcrouchkick = false;
+                bcrouchpunch = true;
+                bjump = false;
+                bjumpkick = false;
+                bkick = false;
+                bpunch = false;
             }
             ////////////////////////////////////////////////////////////////
             if (currentframestate == EnemyEnums.ShaqFrames.Jump)
@@ -239,6 +299,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.NumPad8))
             {
                 currentframestate = EnemyEnums.ShaqFrames.Jump;
+                bblock = false;
+                bcrouch = false;
+                bcrouchblock = false;
+                bcrouchkick = false;
+                bcrouchpunch = false;
+                bjump = true;
+                bjumpkick = false;
+                bkick = false;
+                bpunch = false;
             }
             ////////////////////////////////////////////////////////////////
             if (currentframestate == EnemyEnums.ShaqFrames.JumpKick)
@@ -251,6 +320,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.NumPad7))
             {
                 currentframestate = EnemyEnums.ShaqFrames.JumpKick;
+                bblock = false;
+                bcrouch = false;
+                bcrouchblock = false;
+                bcrouchkick = false;
+                bcrouchpunch = false;
+                bjump = false;
+                bjumpkick = true;
+                bkick = false;
+                bpunch = false;
             }
             ////////////////////////////////////////////////////////////////
             if (currentframestate == EnemyEnums.ShaqFrames.Kick)
@@ -263,6 +341,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.NumPad6))
             {
                 currentframestate = EnemyEnums.ShaqFrames.Kick;
+                bblock = false;
+                bcrouch = false;
+                bcrouchblock = false;
+                bcrouchkick = false;
+                bcrouchpunch = false;
+                bjump = false;
+                bjumpkick = false;
+                bkick = true;
+                bpunch = false;
             }
             ////////////////////////////////////////////////////////////////
             if (currentframestate == EnemyEnums.ShaqFrames.Punch)
@@ -275,6 +362,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.NumPad4))
             {
                 currentframestate = EnemyEnums.ShaqFrames.Punch;
+                bblock = false;
+                bcrouch = false;
+                bcrouchblock = false;
+                bcrouchkick = false;
+                bcrouchpunch = false;
+                bjump = false;
+                bjumpkick = false;
+                bkick = false;
+                bpunch = true;
             }
             base.Update(gtime);
         }

@@ -48,105 +48,16 @@ namespace uwu
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            shaqfu = new Shaq(Content.Load<Texture2D>("shaq"), new Vector2(350, 400), Color.White, new List<Frame>());
-            enemything = new Enemy(Content.Load<Texture2D>("beast"), new Vector2(420, 404), Color.White, new List<Frame>());
+            shaqfu = new Shaq(Content.Load<Texture2D>("shaq"), new Vector2(363, 400), Color.White, new List<Frame>());
+            enemything = new Enemy(Content.Load<Texture2D>("beast"), new Vector2(420, 395), Color.White, new List<Frame>());
             pixel = new Texture2D(GraphicsDevice, 1, 1);
             pixel.SetData(new Color[] { Color.White });
-
             shaqsprites = Content.Load<Texture2D>("shaq");
 
 
             //attack logic
 
-            if (shaqfu.bPunch == true)
-            {
-                if (enemything.bcrouch || enemything.bcrouchblock || enemything.bcrouchkick || enemything.bcrouchpunch)
-                {
-                    
-                }
-                 else if (enemything.bjump)
-                {
-                    //no damage
-                }
-                else if (enemything.bblock)
-                {
-                    //half damage taken
-                }
-                else
-                {
-                    //full damage
-                }//361 1268
-            }
-            if (shaqfu.bKick == true)
-            {
-                if (enemything.bcrouch || enemything.bcrouchblock || enemything.bcrouchkick || enemything.bcrouchpunch)
-                {
-                    //""
-                }
-                else if (enemything.bjump)
-                {
-                    //""
-                }
-                else if (enemything.bblock)
-                {
-                    //""
-                }
-                else
-                {
-                    //""
-                }
-            }
-            if (shaqfu.bCrouchPunch == true || shaqfu.bCrouchKick == true)
-            {
-                if (enemything.bcrouchblock)
-                {
-                    //half
-                }
-                else if (enemything.bjump)
-                {
-                    //none
-                }
-                else
-                {
-                    //full
-                }
-            }
-            
-
-            if (enemything.bpunch == true || shaqfu.bKick == true)
-            {
-                if (shaqfu.bCrouch || shaqfu.bCrouchBlock || shaqfu.bCrouchKick || shaqfu.bCrouchPunch)
-                {
-                    //none
-                }
-                else if (shaqfu.bJump)
-                {
-                    //none
-                }
-                else if (shaqfu.bBlock)
-                {
-                    //half
-                }
-                else
-                {
-                    //full
-                }
-            }
-            if (enemything.bcrouchkick || enemything.bcrouchpunch)
-            {
-                if (shaqfu.bCrouchBlock)
-                {
-                    //half
-                }
-                else if (shaqfu.bJump)
-                {
-                    //none
-                }
-                else
-                {
-                    //full
-                }
-            }
+           
             
             // TODO: use this.Content to load your game content here
         }
@@ -177,7 +88,95 @@ namespace uwu
 
 
 
+            if (shaqfu.cPunch == true)
+            {
+                if (enemything.bcrouch || enemything.bcrouchblock || enemything.bcrouchkick || enemything.bcrouchpunch)
+                {
+                    enemything.health = enemything.health - 0;
+                }
+                else if (enemything.bjump)
+                {
+                    enemything.health = enemything.health - 0;
+                }
+                else if (enemything.bblock)
+                {
+                    enemything.health = enemything.health - 1;
+                }
+                else
+                {
+                    enemything.health = enemything.health - 2;
+                }//361 1268
+            }
+            if (shaqfu.cKick == true)
+            {
+                if (enemything.bcrouch || enemything.bcrouchblock || enemything.bcrouchkick || enemything.bcrouchpunch)
+                {
+                    enemything.health = enemything.health - 0;
+                }
+                else if (enemything.bjump)
+                {
+                    enemything.health = enemything.health - 0;
+                }
+                else if (enemything.bblock)
+                {
+                    enemything.health = enemything.health - 1;
+                }
+                else
+                {
+                    enemything.health = enemything.health - 2;
+                }
+            }
+            if (shaqfu.cCrouchPunch == true || shaqfu.cCrouchKick == true)
+            {
+                if (enemything.bcrouchblock)
+                {
+                    enemything.health = enemything.health - 1;
+                }
+                else if (enemything.bjump)
+                {
+                    enemything.health = enemything.health - 0;
+                }
+                else
+                {
+                    enemything.health = enemything.health - 2;
+                }
+            }
 
+
+           if (enemything.bpunch == true || enemything.bkick == true)
+            {
+                if (shaqfu.cCrouch || shaqfu.cCrouchBlock || shaqfu.cCrouchKick || shaqfu.cCrouchPunch)
+                {
+                    shaqfu.health = shaqfu.health - 0;
+                }
+                else if (shaqfu.cJump)
+                {
+                    shaqfu.health = shaqfu.health - 0;
+                }
+                else if (shaqfu.cBlock)
+                {
+                    shaqfu.health = shaqfu.health - 1;
+                }
+                else
+                {
+                    shaqfu.health = shaqfu.health - 2;
+                }
+            }
+            if (enemything.bcrouchkick || enemything.bcrouchpunch)
+            {
+                if (shaqfu.cCrouchBlock)
+                {
+                    shaqfu.health = shaqfu.health - 1;
+                }
+                else if (shaqfu.cJump)
+                {
+                    shaqfu.health = shaqfu.health - 0;
+                }
+                else
+                {
+                    shaqfu.health = shaqfu.health - 2;
+                }
+            }
             base.Update(gameTime);
         }
         
@@ -196,7 +195,8 @@ namespace uwu
             enemything.Draw(spriteBatch, pixel);
             //spriteBatch.Draw(Content.Load<Texture2D>(""), new Vector2(380, 404), null, Color.White, 0, Vector2.Zero, 1.3f, SpriteEffects.None, 0); 
             //spriteBatch.Draw(shaqsprites, new Rectangle(350, 404, 10, 10), shaqfu.sourceRectangle, Color.White);
-
+            spriteBatch.Draw(pixel, new Rectangle(0, 0, 2, shaqfu.health), Color.DarkSlateGray);
+            spriteBatch.Draw(pixel, new Rectangle(798, 0, 2, enemything.health), Color.DarkSlateGray);
 
             spriteBatch.End();
             base.Draw(gameTime);

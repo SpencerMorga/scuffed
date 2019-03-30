@@ -34,15 +34,16 @@ namespace uwu
         //}
 
 
-        public bool bJump = false;
-        public bool bBlock = false;
-        public bool bCrouch = false;
-        public bool bCrouchBlock = false;
-        public bool bCrouchPunch = false;
-        public bool bPunch = false;
-        public bool bKick = false;
-        public bool bJumpKick = false;
-        public bool bCrouchKick = false;
+        public bool cJump = false;
+        public bool cBlock = false;
+        public bool cCrouch = false;
+        public bool cCrouchBlock = false;
+        public bool cCrouchPunch = false;
+        public bool cPunch = false;
+        public bool cKick = false;
+        public bool cJumpKick = false;
+        public bool cCrouchKick = false;
+        public int health = 480;
 
         private Vector2 BottomLeft(int width, int height)
         {
@@ -110,15 +111,15 @@ namespace uwu
             
             List<Frame> crouchblockA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 1116, 22, 45), BottomLeft(22, 45)),
+                new Frame(new Rectangle(104, 1094, 22, 44), BottomLeft(22, 44)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aCrouchBlock, crouchblockA);
            
             List<Frame> crouchpunchA = new List<Frame>()
             {
-                new Frame(new Rectangle(1, 459, 30, 45),  BottomLeft(30, 45)),
-                new Frame(new Rectangle(36, 459, 39, 45), BottomLeft(39, 45)),
-                new Frame(new Rectangle(80, 459, 30, 45), BottomLeft(30, 45)),
+                new Frame(new Rectangle(1, 440, 30, 44),  BottomLeft(30, 44)),
+                new Frame(new Rectangle(36, 440, 39, 44), BottomLeft(39, 44)),
+                new Frame(new Rectangle(80, 440, 30, 44), BottomLeft(30, 44)),
             };
             animation2.Add(ShaqEnums.actuallyshaq.aCrouchPunch, crouchpunchA);
             
@@ -149,48 +150,49 @@ namespace uwu
             List<Frame> crouchkickA = new List<Frame>()
             {
                 new Frame(new Rectangle(43,  657, 43, 24), BottomLeft(43, 24)),
-            };            
+            };
+            animation2.Add(ShaqEnums.actuallyshaq.aCrouchKick, crouchkickA);
         }
 
         public void Update(GameTime gTime, KeyboardState ks)
         {
             frames = animation2[currentframestate2];
 
-            if (bJump == true)
+            if (cJump == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aJump;
             }
-            if (bBlock == true)
+            if (cBlock == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aBlock;
             }
-            if (bCrouch == true)
+            if (cCrouch == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouch;
             }
-            if (bCrouchBlock == true)
+            if (cCrouchBlock == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouchBlock;
             }
-            if (bCrouchKick == true)
+            if (cCrouchKick == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouchKick;
             }
-            if (bCrouchPunch == true)
+            if (cCrouchPunch == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouchPunch;
             }
-            if (bKick == true)
+            if (cKick == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aKick;
             }
 
-            if (bPunch == true)
+            if (cPunch == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aPunch;
             }
 
-            if (bJumpKick == true)
+            if (cJumpKick == true)
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aJumpKick;
             }
@@ -208,6 +210,16 @@ namespace uwu
             if (ks.IsKeyDown(Keys.S))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aBlock;
+                cBlock = true;
+                cCrouch = false;
+                cCrouchBlock = false;
+                cCrouchKick = false;
+                cCrouchPunch = false;
+                cJump = false;
+                cKick = false;
+                cPunch = false;
+                cJumpKick = false;
+
             }
 
             if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouch)
@@ -221,6 +233,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.C))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouch;
+                cBlock = false;
+                cCrouch = true;
+                cCrouchBlock = false;
+                cCrouchKick = false;
+                cCrouchPunch = false;
+                cJump = false;
+                cKick = false;
+                cPunch = false;
+                cJumpKick = false;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouchBlock)
@@ -233,6 +254,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.V))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouchBlock;
+                cBlock = false;
+                cCrouch = false;
+                cCrouchBlock = true;
+                cCrouchKick = false;
+                cCrouchPunch = false;
+                cJump = false;
+                cKick = false;
+                cPunch = false;
+                cJumpKick = false;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aCrouchKick)
@@ -245,6 +275,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.B))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouchKick;
+                cBlock = false;
+                cCrouch = false;
+                cCrouchBlock = false;
+                cCrouchKick = true;
+                cCrouchPunch = false;
+                cJump = false;
+                cKick = false;
+                cPunch = false;
+                cJumpKick = false;
                 //bCrouchKick = true;
             }
             //anachronistic capitalism
@@ -258,6 +297,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.X))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aCrouchPunch;
+                cBlock = false;
+                cCrouch = false;
+                cCrouchBlock = false;
+                cCrouchKick = false;
+                cCrouchPunch = true;
+                cJump = false;
+                cKick = false;
+                cPunch = false;
+                cJumpKick = false;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aPunch)
@@ -270,6 +318,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.D))
             {               
                 currentframestate2 = ShaqEnums.actuallyshaq.aPunch;
+                cBlock = false;
+                cCrouch = false;
+                cCrouchBlock = false;
+                cCrouchKick = false;
+                cCrouchPunch = false;
+                cJump = false;
+                cKick = false;
+                cPunch = true;
+                cJumpKick = false;
                 //bPunch = true;
             }
             //anachronistic capitalism
@@ -283,6 +340,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.A))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aKick;
+                cBlock = false;
+                cCrouch = false;
+                cCrouchBlock = false;
+                cCrouchKick = false;
+                cCrouchPunch = false;
+                cJump = false;
+                cKick = true;
+                cPunch = false;
+                cJumpKick = false;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aJump)
@@ -295,6 +361,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.W))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aJump;
+                cBlock = false;
+                cCrouch = false;
+                cCrouchBlock = false;
+                cCrouchKick = false;
+                cCrouchPunch = false;
+                cJump = true;
+                cKick = false;
+                cPunch = false;
+                cJumpKick = false;
             }
             //anachronistic capitalism
             if (currentframestate2 == ShaqEnums.actuallyshaq.aJumpKick)
@@ -307,6 +382,15 @@ namespace uwu
             if (ks.IsKeyDown(Keys.E))
             {
                 currentframestate2 = ShaqEnums.actuallyshaq.aJumpKick;
+                cBlock = false;
+                cCrouch = false;
+                cCrouchBlock = false;
+                cCrouchKick = false;
+                cCrouchPunch = false;
+                cJump = false;
+                cKick = false;
+                cPunch = false;
+                cJumpKick = true;
             }
 
             base.Update(gTime);
